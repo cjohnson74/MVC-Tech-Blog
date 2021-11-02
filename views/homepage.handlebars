@@ -1,9 +1,16 @@
 <!-- Loop over each object in the blogpost array -->
 {{#each blogposts as |blogpost|}}
-<div class="row mb-4 project">
-    <div class="col-md-5">
+<div class="col-md-12 mb-4 project">
+    <div class="row mt-4">
         <h2>
-            <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+            <a href="/blogpost/{{blogpost.id}}">{{blogpost.name}}</a>
         </h2>
+        <p>Created by {{blogpost.user.name}} on {{format_date blogpost.date-created}}</p>
+    </div>
+    <div class="row mt-4">
+        <p>
+            {{blogpost.description}}
+        </p>
     </div>
 </div>
+{{/each}}
