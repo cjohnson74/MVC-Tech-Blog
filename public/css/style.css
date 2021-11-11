@@ -1,5 +1,7 @@
 header, .blogpost:not(:last-child) {
     border-bottom: 1px solid #ccc;
+    background-size: cover;
+    background-color: brown;
 }
 
 .no-button {

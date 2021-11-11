@@ -5,7 +5,7 @@ const newFormHandler = async (event) => {
     const description = document.querySelector('#blogpost-desc').value.trim();
 
     if (name && description) {
-        const responst = await fetch('/api/blogposts', {
+        const response = await fetch('/api/blogposts', {
             method: 'POST',
             body: JSON.stringify({ name, description }),
             headers: {
@@ -13,7 +13,7 @@ const newFormHandler = async (event) => {
             },
         });
 
-        if (Response.ok) {
+        if (response.ok) {
             document.location.replace('/dashboard');
         } else {
             alert('Failed to create tech post')
