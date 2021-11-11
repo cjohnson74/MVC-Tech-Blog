@@ -1,7 +1,51 @@
-header, .blogpost:not(:last-child) {
-    border-bottom: 1px solid #ccc;
+header, #blogpost-header, .blogpost:not(:last-child) {
     background-size: cover;
-    background-color: brown;
+    background-color: #260F0F;
+}
+
+body {
+    background-color: #D5EBD1;
+}
+
+header h1 {
+    padding: 10px;
+    background-color: #D5EBD1;
+    box-shadow: 10px 10px 0px #A7A7A7;
+    border-radius: 10px;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+header h1 a {
+    color: #260F0F;
+}
+
+nav a {
+    margin: 1rem 2rem 1rem 2rem;
+}
+
+#created-by {
+    flex-direction: row;
+    justify-content: space-around;
+    color: #D5EBD1;
+}
+
+#created-by p {
+    text-align: right;
+    margin: 0;
+    line-height: auto;
+}
+
+#blogpost-desc {
+    margin-top: 0;
+    border-color: #260F0F;
+    border: 5px solid;
+    border-top: 0px;
+}
+
+#blogpost-desc p {
+    margin: 20px;
 }
 
 .no-button {
@@ -9,18 +53,13 @@ header, .blogpost:not(:last-child) {
     border: none;
     padding: 0;
     cursor: pointer;
-    color: #1b89bc;
+    color: #D5EBD1;
     text-decoration: none;
     font-size: 100%;
+    margin: 1rem 2rem 1rem 2rem;
 }
 
 .no-button:hover {
-    color: #065b83;
+    color: #D5EBD1;
     text-decoration: underline;
-}
-
-.dollar-amount {
-    color: #056605;
-    font-weight: bold;
-    margin-left: -5px;
 }
