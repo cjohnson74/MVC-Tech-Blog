@@ -8,9 +8,9 @@
     <div class="row mt-4">
         <h3>Create a New Tech Post:</h3>
 
-        <form class="form new-project-form">
+        <form class="form new-blogpost-form">
             <div class="form-group">
-                <label for="techpost-name">Title:</label>
+                <label for="blogpost-name">Title:</label>
                 <input class="form-input" type="text"
                 id="blogpost-name" name="blogpost-name" />
             </div>
@@ -24,13 +24,14 @@
         </form>
     </div>
 
-    {{#if projects.length}}
-    <div class="row mt-4 blogpost-list">
-        <h3>Current Techpost:</h3>
+    {{#if blogposts.length}}
+    <div class="col-md-6 blogpost-list">
+        <h3>Current Blogposts:</h3>
+
         {{#each blogposts as |blogpost|}}
         <div class="row mb-2">
             <div class="col-md-8">
-                <h4><a href="/project/{{blogpost.id}}">{{blogpost.name}}</a></h4>
+                <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.name}}</a></h4>
             </div>
             <div class="col-md-4">
                 <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">DELETE</button>
@@ -41,4 +42,4 @@
     {{/if}}
 </div>
 
-<script src="./js/profile.js"></script>
+<script src="./js/dashboard.js"></script>
