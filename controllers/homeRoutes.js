@@ -11,6 +11,10 @@ router.get("/", async (req, res) => {
           model: User,
           attributes: ["name"],
         },
+        {
+          model: Comment,
+          attributes: ["name", "description", "date_created", "user_id"]
+        }
       ],
     });
 
@@ -36,18 +40,24 @@ router.get("/blogpost/:id", async (req, res) => {
         {
           model: User,
           attributes: ["name"],
-        },
-        {
-          model: Comment,
-          attributes: ["name", "description", "date_created", "user_id"]
         }
       ],
     });
 
+    const commentData = await Comment.findAll({
+      where: [
+        {
+          blogpost_id: req.params.id
+        },
+      ],
+    });
+
     const blogposts = blogpostData.get({ plain: true });
+    const comments = commentData.get({ plain: true });
 
     res.render('blogpost', {
       ...blogposts,
+      ...comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -61,7 +71,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Blogpost }],
+      include: [{ model: Blogpost, model: Comment }],
     });
 
     const user = userData.get({ plain: true });
