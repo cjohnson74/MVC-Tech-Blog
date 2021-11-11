@@ -6,19 +6,29 @@
   <p>{{description}}</p>
 </div>
 
+{{#if comment.length}}
+  <div class="col-md-6 comment-list">
+    <h3>Current Comments:</h3>
+
+    {{#each comments as |comment|}}
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <h4><a href="/comment/{{comment.id}}">{{comment.name}}</a></h4>
+        </div>
+        <div class="col-md-4">
+            <p>
+            {{comment.description}}
+            </p>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{/if}}
+
 <div class="display-flex justify-space-between">
   <form class="form new-comment-form">
     <div class="form-group">
-      <label for="comment-name">Title:</label>
-      <input
-        class="form-input"
-        type="text"
-        id="comment-name"
-        name="comment-name"
-      />
-    </div>
-    <div class="form-group">
-      <label for="comment-desc">Content:</label>
+      <label for="comment-desc">Comment:</label>
       <textarea
         class="form-input"
         id="comment-desc"
@@ -30,16 +40,3 @@
     </div>
   </form>
 </div>
-{{#if comments.length}}
-  <div class="col-md-6 comment-list">
-    <h3>Current Comments:</h3>
-
-    {{#each comments as |comment|}}
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <h4><a href="/comment/{{comment.id}}">{{comment.name}}</a></h4>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-{{/if}}
