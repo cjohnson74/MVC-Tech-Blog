@@ -15,14 +15,18 @@ header h1 {
     margin-left: 3rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
-}
-
-header h1 a {
     color: #260F0F;
 }
 
 nav a {
     margin: 1rem 2rem 1rem 2rem;
+    text-decoration: none;
+    color: #D5EBD1;
+}
+
+nav a:hover {
+    color: #99ad96;
+    text-decoration: none;
 }
 
 #created-by {
@@ -57,9 +61,18 @@ nav a {
     text-decoration: none;
     font-size: 100%;
     margin: 1rem 2rem 1rem 2rem;
+    text-decoration: none;
 }
 
 .no-button:hover {
+    color: #99ad96;
+}
+
+#blogpost-name {
+    text-decoration: none;
     color: #D5EBD1;
-    text-decoration: underline;
+}
+
+#blogpost-name:hover {
+    color: #99ad96;
 }
