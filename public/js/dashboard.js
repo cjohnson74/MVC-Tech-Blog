@@ -21,27 +21,27 @@ const newFormHandler = async (event) => {
     }
 };
 
-// const newCommentHandler = async (event) => {
-//     event.preventDefault();
+const newCommentHandler = async (event) => {
+    event.preventDefault();
 
-//     const description = document.querySelector('#comment-desc').value.trime();
+    const description = document.quertySelector('#comment-desc').value.trim();
 
-//     if (description) {
-//         const response = await fetch("/api/comments", {
-//             method: 'POST',
-//             body: JSON.stringify({ description }),
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//         });
+    if (description) {
+        const response = await fetch("/api/comments", {
+            method: 'POST',
+            body: JSON.stringify({ description }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-//         if (response.ok) {
-//             console.log('Successfully created tech post')
-//         } else {
-//             alert('Failed to create tech post');
-//         }
-//     }
-// }
+        if (response.ok) {
+            console.log('Successfully created comment')
+        } else {
+            alert('Failed to create comment');
+        }
+    }
+}
 
 const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -67,6 +67,6 @@ document
     .querySelector('.blogpost-list')
     .addEventListener('click', delButtonHandler);
 
-// document
-//     .querySelector('.new-comment-form')
-//     .addEventListener('click', newCommentHandler);
+document
+    .querySelector('.new-comment-form')
+    .addEventListener('submit', newCommentHandler);
