@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
         {
           model: User,
           attributes: ["name"],
-        }
+        },
       ],
     });
 
@@ -29,30 +29,68 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/blogpost/:id", async (req, res) => {
-  try {
-    const blogpostData = await Blogpost.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-        // {
-        //   model: Comment,
-        //   attributes: ["description", "date_created"]
-        // },
-      ],
-    });
+router.get("/:id", async (req, res) => {
+  Blogpost.findByPk(req.params.id, {
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      User,
+      {
+        model: Comment,
+        through: BlogpostComment,
+      },
+    ],
+  })
+    .then((blogpost) => {
+      return Comment.findAll({
+        where: { blogpost_id: req.params.id },
+        include: [
+          {
+            model: User,
+            attributes: ["name"],
+          },
+        ],
+        required: false,
+      });
+    })
+    .then((blogpostComments) => {
+      const blogPostComments = blogpostComments.map(({ comment_id }) => comment_id);
+      const newC
+    })
+    //   include: [{
+    //     model: Comment,
+    //     reuqired: false,
+    //     attributes: ["description", "date_created"],
+    //     },
+    //     {
+    //       include: User,
+    //       as: 'CommentUser',
+    //       required: false,
+    //     }]
+    //   {
+    //     model: Comment,
+    //     attributes: ["description", "user_id","date_created"],
+    //   }
+    //     include: [
+    //       {
+    //         model: User,
+    //         attributes: ["name"],
+    //       }
+    //     ]
+    //   },
+    // });
 
-    const blogposts = blogpostData.get({ plain: true });
-
-    res.render('blogpost', {
-      ...blogposts,
-      logged_in: req.session.logged_in
+    // const blogposts = blogpostData.map((blogpost) => blogpost.get({ plain: true })
+    // );
+    .then((blogpost) => res.status(200).json(blogpost))
+    // res.render('blogpost', {
+    //   ...blogposts,
+    //   logged_in: req.session.logged_in
+    // });
+    .catch((err) => {
+      res.status(500).json(err);
     });
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 // Use withAuth middleware to prevent access to route
@@ -66,7 +104,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('dashboard', {
+    res.render("dashboard", {
       ...user,
       logged_in: true,
     });

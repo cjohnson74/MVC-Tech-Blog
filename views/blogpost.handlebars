@@ -1,11 +1,11 @@
-<div class="col-md-12 mb-4 project">
+<div class="col-md-12 mb-4">
   <div class="row mt-4 blogpost-header">
     <div class="col-md-6">
       <h2 class="blogpost-name-not-link">{{name}}
       </h2>
     </div>
     <div class="col-md-6 created-by">
-      <p>Created by {{user.name}} on {{format_date date_created}}</p>
+      <p><span id="blogpost-id">{{id}}</span> Created by {{user.name}} on {{format_date date_created}}</p>
     </div>
   </div>
   <div class="row mt-4 blogpost-desc">
@@ -13,15 +13,15 @@
   </div>
 </div>
 
-{{#if comment.length}}
+{{#if blogposts.comments.length}}
   <div class="col-md-6 comment-list">
     <h3>Current Comments:</h3>
 
-    {{#each comments as |comment|}}
+    {{#each blogposts.comments as |blogposts.comment|}}
       <div class="row mb-2">
         <div class="col-md-4">
           <p>
-            {{comment.description}}
+            {{blogposts.comment.description}}
           </p>
         </div>
       </div>

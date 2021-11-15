@@ -14,7 +14,7 @@ const newFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.render('/dashboard');
         } else {
             alert('Failed to create tech post');
         }
@@ -24,19 +24,20 @@ const newFormHandler = async (event) => {
 const newCommentHandler = async (event) => {
     event.preventDefault();
 
-    const description = document.quertySelector('#comment-desc').value.trim();
+    const description = document.querySelector('#comment-desc').value.trim();
+    const blogpostId = document.querySelector('#blogpost-id').value.trim();
 
     if (description) {
         const response = await fetch("/api/comments", {
             method: 'POST',
-            body: JSON.stringify({ description }),
+            body: JSON.stringify({ description, blogpost_id }),
             headers: {
                 'Content-Type': 'application/json',
             },
         });
 
         if (response.ok) {
-            console.log('Successfully created comment')
+            document.location.render(`/blogpost/${blogpostId}`);
         } else {
             alert('Failed to create comment');
         }

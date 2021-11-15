@@ -80,3 +80,22 @@ nav a:hover {
 .blogpost-name-not-link {
     color: #D5EBD1;
 }
+
+#blogpost-id {
+    display: none;
+}
+
+.user-blogpost-names-list-item {
+    background-color: #260F0F;
+    border-radius: 1rem;
+}
+
+.user-blogpost-names-list-item-link {
+    margin: 1rem 2rem 1rem 2rem;
+    color: #D5EBD1;
+}
+
+.user-blogpost-names-list-item-link:hover {
+    color: #99ad96;
+    text-decoration: none;
+}
