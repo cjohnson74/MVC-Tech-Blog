@@ -14,35 +14,12 @@ const newFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.render('/dashboard');
+            document.location.replace('/dashboard');
         } else {
             alert('Failed to create tech post');
         }
     }
 };
-
-const newCommentHandler = async (event) => {
-    event.preventDefault();
-
-    const description = document.querySelector('#comment-desc').value.trim();
-    const blogpostId = document.querySelector('#blogpost-id').value.trim();
-
-    if (description) {
-        const response = await fetch("/api/comments", {
-            method: 'POST',
-            body: JSON.stringify({ description, blogpost_id }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (response.ok) {
-            document.location.render(`/blogpost/${blogpostId}`);
-        } else {
-            alert('Failed to create comment');
-        }
-    }
-}
 
 const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -67,7 +44,3 @@ document
 document
     .querySelector('.blogpost-list')
     .addEventListener('click', delButtonHandler);
-
-document
-    .querySelector('.new-comment-form')
-    .addEventListener('submit', newCommentHandler);

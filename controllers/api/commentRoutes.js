@@ -16,13 +16,7 @@ router.get("/:id", (req, res) => {
     // find a single comment by its 'id'
     // be sure to include its associated Blogpost data
     Comment.findByPk(req.params.id, {
-        where: {
-            id: req.params.id,
-        },
         include: Blogpost,
-        where: {
-            comment_id: req.params.id,
-        },
     })
         .then((comment) => {
             if(!comment) {
@@ -39,17 +33,20 @@ router.get("/:id", (req, res) => {
 router.post("/", withAuth, (req, res) => {
     // create a new comment
   Comment.create({
-    ...req.body,
+    description: req.body.description,
     user_id: req.session.user_id,
-    blogpost_id: req.body.blogpost_id,
+    blogpostId: req.body.blogpostId,
   })
     .then((comment) => res.status(200).json(comment))
+//   BlogpostComment.create({
+//       blogpost_id: req.body.blogpost_id,
+//   })
     .catch((err) => {
       res.status(400).json(err);
     });
 });
 
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Comment.destroy({
     where: {
       id: req.params.id,
