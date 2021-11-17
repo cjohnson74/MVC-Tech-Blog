@@ -18,6 +18,7 @@ const newCommentHandler = async (event) => {
                 fetch('/api/blogposts/' + blogpost_id, {
                     method: 'GET',
                 });
+                window.location.reload();
             } else {
                 alert('Failed to create comment');
             } 
