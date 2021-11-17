@@ -35,7 +35,7 @@ router.post("/", withAuth, (req, res) => {
   Comment.create({
     description: req.body.description,
     user_id: req.session.user_id,
-    blogpostId: req.body.blogpostId,
+    blogpostId: req.body.blogpost_id,
   })
     .then((comment) => res.status(200).json(comment))
 //   BlogpostComment.create({
