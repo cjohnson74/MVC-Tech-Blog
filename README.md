@@ -7,4 +7,5 @@ Writing about tech can be just as important as making it. Developers spend plent
 
 # Demo
 
-<a href="https://watch.screencastify.com/v/qXqef2PJLKU1JiXhzI3w"></a>
+<a href="https://watch.screencastify.com/v/qXqef2PJLKU1JiXhzI3w"><img width="1667" alt="Tech-Blog-Demo" src="https://user-images.githubusercontent.com/52815609/142335356-ca5bca89-18a1-46c8-8bae-973e57d8eff5.png">
+</a>
