@@ -5,8 +5,6 @@ Writing about tech can be just as important as making it. Developers spend plent
 
 [Live App](https://model-view-control-tech-blog.herokuapp.com/)
 
-# Screenshots
+# Demo
 
-<img width="1357" alt="Screen Shot 2021-10-24 at 11 18 59 AM" src="">
-
-<img width="1352" alt="Screen Shot 2021-10-24 at 11 22 01 AM" src="">
+<iframe src="https://drive.google.com/file/d/1CKMLdabKM-NCIgWbDbZyA0TTfygqjgi_/preview" width="640" height="480"></iframe>
