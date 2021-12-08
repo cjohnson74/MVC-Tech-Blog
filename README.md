@@ -11,6 +11,7 @@ Writing about tech can be just as important as making it. Developers spend plent
 ### CSS
 ### Javascript
 ### Node.js
+### SQL
 ### Model View Controller
 ### API
 ### MySQL2
