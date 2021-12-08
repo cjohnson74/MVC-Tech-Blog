@@ -7,20 +7,20 @@ Writing about tech can be just as important as making it. Developers spend plent
 
 # Technologies
 
-## HTML
-## CSS
-## Javascript
-## Node.js
-## Model View Controller
-## API
-## MySQL2
-## Handlebars.js
-## express-handlebars
-## Sequelize
-## dotenv
-## bcrypt
-## express-session
-## connect-session-sequelize
+### HTML
+### CSS
+### Javascript
+### Node.js
+### Model View Controller
+### API
+### MySQL2
+### Handlebars.js
+### express-handlebars
+### Sequelize
+### dotenv
+### bcrypt
+### express-session
+### connect-session-sequelize
 
 # Demo
 
