@@ -3,7 +3,7 @@ Writing about tech can be just as important as making it. Developers spend plent
 
 # Live Application Deployed on Heroku
 
-[Live App](https://model-view-control-tech-blog.herokuapp.com/)
+<a src="https://model-view-control-tech-blog.herokuapp.com"/><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a>
 
 # Demo
 
